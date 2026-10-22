@@ -27,7 +27,7 @@ local browser = "Zen"
    hl.exec_cmd("systemctl --user start hyprpolkitagent")
    hl.exec_cmd("hyprpaper")
    hl.exec_cmd("waybar -c ~/.config/waybar/config-simple -s ~/.config/waybar/style-simple.css &")
-   hl.exec_cmd("/home/NAME HERE/.config/hypr/wallpaper.sh")
+   hl.exec_cmd("~/.config/hypr/wallpaper.sh")
         -- THIS NEEDS EDITING BASED ON YOUR FS
 
 end)
