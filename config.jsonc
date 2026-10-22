@@ -1,0 +1,96 @@
+{
+  "position": "top",
+  "gtk-layer-shell": true,
+  "exclusive": true,
+
+  "custom/arch": {
+     "format": "",
+      "tooltip-format": "Arch Linux (Hyprland)"
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "persistent-workspaces": {
+      "*": 3
+    }
+  },
+  "custom/wallpaper-changer": {
+    "format": "󰸉",
+    "on-click": "~/.config/waybar/scripts/wallpaper-change.sh",
+    "tooltip": true,
+    "tooltip-format": "Click to change wallpaper"
+  },
+
+  "modules-left": [
+    "custom/arch",
+    "clock",
+    "hyprland/workspaces"
+  ],
+
+  "modules-right": [
+    "custom/wallpaper-changer",
+    "custom/updates",
+    "custom/cpu",
+    "custom/weather",
+    "pulseaudio",
+    "backlight",
+    "network",
+    "battery",
+    "tray",
+    "custom/swaync",
+    "custom/wlogout"
+  ],
+
+  "clock": {
+    "format": "󰥔 {:%I:%M %p}",
+    "tooltip-format": "<span font_size='15pt'>{calendar}</span>",
+    "calendar": {
+        "mode": "month",
+        "mode-mon-col": 3,
+        "weeks-pos": "left",
+        "format": {
+            "months":   "<span color='#cdd6f4' font_size='8pt'><b>{}</b></span>",
+            "days":     "<span color='#aeb4cd' font_size='8pt'>{}</span>",
+            "weeks":    "<span color='#4f4f4f' font_size='8pt'><b>W{}</b></span>",
+            "weekdays": "<span color='#83b2ff' font_size='8pt'><b>{}</b></span>",
+            "today":    "<span color='#ff4d4d' font_size='8pt'><b><u>{}</u></b></span>"
+        }
+    }
+  },
+
+  "pulseaudio": {
+    "format": " {volume}%",
+    "format-muted": " muted",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+  },
+
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": " {percent}%",
+    "tooltip": false,
+    "on-scroll-up": "brightnessctl set +2%",
+    "on-scroll-down": "brightnessctl set 2%-",
+  },
+
+  "battery": {
+    "format": "{icon}{capacity}%",
+    "format-charging": "󱐋{capacity}%",
+    "format-full": " 100%",
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ],
+    "states": {
+      "good": 85,
+      "warning": 40,
+      "critical": 20
+    }
+  }
+}
